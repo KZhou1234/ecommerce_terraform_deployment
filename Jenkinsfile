@@ -4,6 +4,8 @@ pipeline {
     stage ('Build') {
       steps {
         sh '''#!/bin/bash
+	sudo apt update
+	sudp apt install pytho3.9
         python3.9 -m venv venv
         source venv/bin/activate
         cd ./backend
