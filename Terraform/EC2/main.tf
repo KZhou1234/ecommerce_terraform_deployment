@@ -20,13 +20,15 @@ resource "aws_instance" "ecommerce_frontend_az1" {
   key_name          = "wl5_keypair"                # The key pair name for SSH access to the instance.
   
   # user data
-  user_data = templatefile("${path.module}/../../Scripts/frontend_setup.sh", {
+  user_data = templatefile("${path.root}/../Scripts/frontend_setup.sh", {
   backend_ip = aws_instance.ecommerce_backend_az1.private_ip
   })
   # Tagging the resource with a Name label. Tags help in identifying and organizing resources in AWS.
   tags = {
     "Name" : "ecommerce_frontend_az1"         
   }
+
+  depends_on = [ aws_instance.ecommerce_backend_az1 ]
 }
 
 # Create EC2 for public_subnet_1
@@ -48,6 +50,8 @@ resource "aws_instance" "ecommerce_frontend_az2" {
   tags = {
     "Name" : "ecommerce_frontend_az2"         
   }
+    depends_on = [ aws_instance.ecommerce_backend_az2 ]
+
 }
 
 # Create EC2 for private_subnet_0

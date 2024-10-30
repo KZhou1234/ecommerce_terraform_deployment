@@ -7,7 +7,7 @@ provider "aws" {
 
 module "VPC" {
   source = "./VPC"
-
+  frontend_instance_id = module.EC2.frontend_instance_ids
 }
 
 module "EC2" {
