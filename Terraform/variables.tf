@@ -6,7 +6,9 @@ variable "aws_access_key"{
 variable "aws_secret_key"{
     sensitive = true
 }         # Replace with your AWS secret access key (leave empty if using IAM roles or env vars)
-variable "region"{}
+variable "region"{
+  default = "us-east-1"
+}
 
 variable "db_instance_class" {
   description = "The instance type of the RDS instance"
