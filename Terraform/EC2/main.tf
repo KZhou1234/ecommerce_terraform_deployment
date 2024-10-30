@@ -17,7 +17,7 @@ resource "aws_instance" "ecommerce_frontend_az1" {
   # Attach an existing security group to the instance.
   # Security groups control the inbound and outbound traffic to your EC2 instance.
   vpc_security_group_ids = [aws_security_group.frontend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
-  key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
+  key_name          = "wl5_keypair"                # The key pair name for SSH access to the instance.
   
   # user data
   user_data = templatefile("${path.module}/../../Scripts/frontend_setup.sh", {
@@ -39,7 +39,7 @@ resource "aws_instance" "ecommerce_frontend_az2" {
   # Attach an existing security group to the instance.
   # Security groups control the inbound and outbound traffic to your EC2 instance.
   vpc_security_group_ids = [aws_security_group.frontend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
-  key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
+  key_name          = "wl5_keypair"                # The key pair name for SSH access to the instance.
 # user data
   user_data = templatefile("${path.module}/../../Scripts/frontend_setup.sh", {
   backend_ip = aws_instance.ecommerce_backend_az2.private_ip
@@ -60,7 +60,7 @@ resource "aws_instance" "ecommerce_backend_az1" {
   # Attach an existing security group to the instance.
   # Security groups control the inbound and outbound traffic to your EC2 instance.
   vpc_security_group_ids = [aws_security_group.backend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
-  key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
+  key_name          = "wl5_keypair"                # The key pair name for SSH access to the instance.
 # user data
   user_data = file("${path.module}/../../Scripts/backend_setup.sh"
   #, {
@@ -82,7 +82,7 @@ resource "aws_instance" "ecommerce_backend_az2" {
   # Attach an existing security group to the instance.
   # Security groups control the inbound and outbound traffic to your EC2 instance.
   vpc_security_group_ids = [aws_security_group.backend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
-  key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
+  key_name          = "wl5_keypair"                # The key pair name for SSH access to the instance.
 # user data
   user_data = file("${path.module}/../../Scripts/backend_setup.sh"
   #, {
