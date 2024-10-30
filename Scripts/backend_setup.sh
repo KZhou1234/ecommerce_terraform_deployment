@@ -8,7 +8,7 @@ pip install -r requirements.txt
 
 # add the private ip
 #sed -i 's/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \["your_ip_address"\]/' settings.py
-sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \[\"${backend_ip}\"\]/" settings.py
+#sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \[\"${backend_ip}\"\]/" settings.py
 
 
 # run the Django application
