@@ -62,9 +62,10 @@ resource "aws_instance" "ecommerce_backend_az1" {
   vpc_security_group_ids = [aws_security_group.backend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
   key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
 # user data
-  user_data = templatefile("/home/ubuntu/ecommerce_terraform_deployment/Scripts/backend_setup.sh", {
-  backend_ip = aws_instance.ecommerce_backend_az1.private_ip
-  })
+  user_data = file("/home/ubuntu/ecommerce_terraform_deployment/Scripts/backend_setup.sh"
+  #, {
+  #backend_ip = aws_instance.ecommerce_backend_az1.private_ip}
+  )
   # Tagging the resource with a Name label. Tags help in identifying and organizing resources in AWS.
   tags = {
     "Name" : "ecommerce_backend_az1"         
@@ -83,9 +84,10 @@ resource "aws_instance" "ecommerce_backend_az2" {
   vpc_security_group_ids = [aws_security_group.backend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
   key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
 # user data
-  user_data = templatefile("/home/ubuntu/ecommerce_terraform_deployment/Scripts/backend_setup.sh", {
-  backend_ip = aws_instance.ecommerce_backend_az2.private_ip
-  })
+  user_data = file("/home/ubuntu/ecommerce_terraform_deployment/Scripts/backend_setup.sh"
+  #, {
+  #backend_ip = aws_instance.ecommerce_backend_az2.private_ip}
+  )
   # Tagging the resource with a Name label. Tags help in identifying and organizing resources in AWS.
   tags = {
     "Name" : "ecommerce_backend_az2"         
