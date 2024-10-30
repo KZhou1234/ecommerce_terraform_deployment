@@ -1,4 +1,4 @@
-
+# I need to change the user data, and i've also need to modify the path and variable for private ip address of the backend
 #Local variables are only used within the scope of the currentconfiguration file where they are defined.
 #They are not passed between modules or configurations.
 
@@ -18,7 +18,11 @@ resource "aws_instance" "ecommerce_frontend_az1" {
   # Security groups control the inbound and outbound traffic to your EC2 instance.
   vpc_security_group_ids = [aws_security_group.frontend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
   key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
-
+  
+  # user data
+  user_data = templatefile("/home/ubuntu/ecommerce_terraform_deployment/Scripts/backend_setup.sh", {
+  backend_ip = aws_instance.ecommerce_backend_az1.private_ip
+  })
   # Tagging the resource with a Name label. Tags help in identifying and organizing resources in AWS.
   tags = {
     "Name" : "ecommerce_frontend_az1"         
@@ -149,7 +153,14 @@ resource "aws_security_group" "backend_sg" {
   }
 }
 
-output "instance_ips" {
+output "frontend_instance_ips" {
   value = [aws_instance.ecommerce_frontend_az1.public_ip,
           aws_instance.ecommerce_frontend_az2.public_ip]
+}
+
+
+
+output "backend_instance_private_ips" {
+  value = [aws_instance.ecommerce_backend_az1.private_ip,
+          aws_instance.ecommerce_backend_az2.private_ip]
 }
