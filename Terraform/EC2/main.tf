@@ -20,7 +20,7 @@ resource "aws_instance" "ecommerce_frontend_az1" {
   key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
   
   # user data
-  user_data = templatefile("${path.root}/../../Scripts/frontend_setup.sh", {
+  user_data = templatefile("${path.module}/../../Scripts/frontend_setup.sh", {
   backend_ip = aws_instance.ecommerce_backend_az1.private_ip
   })
   # Tagging the resource with a Name label. Tags help in identifying and organizing resources in AWS.
@@ -41,7 +41,7 @@ resource "aws_instance" "ecommerce_frontend_az2" {
   vpc_security_group_ids = [aws_security_group.frontend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
   key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
 # user data
-  user_data = templatefile("${path.root}/../../Scripts/frontend_setup.sh", {
+  user_data = templatefile("${path.module}/../../Scripts/frontend_setup.sh", {
   backend_ip = aws_instance.ecommerce_backend_az2.private_ip
   })
   # Tagging the resource with a Name label. Tags help in identifying and organizing resources in AWS.
@@ -62,7 +62,7 @@ resource "aws_instance" "ecommerce_backend_az1" {
   vpc_security_group_ids = [aws_security_group.backend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
   key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
 # user data
-  user_data = file("${path.root}/../../Scripts/backend_setup.sh"
+  user_data = file("${path.module}/../../Scripts/backend_setup.sh"
   #, {
   #backend_ip = aws_instance.ecommerce_backend_az1.private_ip}
   )
@@ -84,7 +84,7 @@ resource "aws_instance" "ecommerce_backend_az2" {
   vpc_security_group_ids = [aws_security_group.backend_sg.id]       # Replace with the security group ID, e.g., "sg-01297adb7229b5f08".
   key_name          = "KeZhou932_463key"                # The key pair name for SSH access to the instance.
 # user data
-  user_data = file("${path.root}/../../Scripts/backend_setup.sh"
+  user_data = file("${path.module}/../../Scripts/backend_setup.sh"
   #, {
   #backend_ip = aws_instance.ecommerce_backend_az2.private_ip}
   )
