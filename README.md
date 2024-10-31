@@ -19,8 +19,11 @@ In this project, we deployed the e-commerce application to AWS infrastructure pr
 ### 1. What is the tech stack? Run the application
 The above steps were create instances and run the application manually, performed to better understand how to run a full-stack application that uses React for the frontend and Django for the backend. The frontend has port 3000 open to run React and port 22 open for SSH. This way, the client can access the webpage through the public IP address of the frontend server, and engineers can connect to the frontend server to access its resources.
 
+### 2. Create the Infrastructure Using Terraform  
+<div align="center">
+  <img width="1479" alt="Screenshot 2024-10-30 at 3 24 00 AM" src="https://github.com/user-attachments/assets/3c95bf05-3d27-4de2-86e5-565730920ad0">
+</div>
 
-### 2. Create the Infrastructure Using Terraform
 The custom VPC will have two availability zones (AZs) to improve resilience. In order to direct traffic to these two AZs, a load balancer should also be created. The load balancer has its own security group to allow HTTP traffic on port 80 to access the resources. The targets of the load balancer are the frontend servers in the two different AZs.
 
 For each availability zone (AZ), there will be two subnets: public subnets for the frontend servers in the presentation layer and private subnets for the backend servers that run the actual application and maintain the database.
@@ -29,7 +32,9 @@ Each subnet has its own route table associated with it to set rules for directin
 
 ### 3. Avoid Leaking Credentials on Remote Repository
 Add sensitive values to the .gitignore file and appropriately set the server key in Jenkins to ensure that Jenkins can access the credentials and automate the process securely.
-
+<div>
+<img width="1820" alt="Screenshot 2024-10-30 at 2 09 37 AM" src="https://github.com/user-attachments/assets/991b5935-880f-410c-89fb-4f2c64877ee0">
+</div>
 ## ISSUES/TROUBLESHOOTING  
 
 1. Python Version Drift
