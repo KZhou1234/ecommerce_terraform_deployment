@@ -117,7 +117,7 @@ To query the number of rows of a table, we can use SQL, for example `SELECT COUN
 
 3. Which states ordered the most products? Least products? Provide the top 5 and bottom 5 states.
 
-4. Of all of the orders placed, which product was the most sold? Please prodide the top 3.
+4. Of all of the orders placed, which product was the most sold? Please prodide the top 
 
 Provide the SQL query used to gather this information as well as the answer.
 
