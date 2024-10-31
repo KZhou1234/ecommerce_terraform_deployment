@@ -35,6 +35,8 @@ Add sensitive values to the .gitignore file and appropriately set the server key
 <div>
 <img width="1820" alt="Screenshot 2024-10-30 at 2 09 37 AM" src="https://github.com/user-attachments/assets/991b5935-880f-410c-89fb-4f2c64877ee0">
 </div>
+
+
 ## ISSUES/TROUBLESHOOTING  
 
 1. Python Version Drift
