@@ -9,7 +9,10 @@
 In this project, we deployed the e-commerce application to AWS infrastructure provisioned with Terraform, automating the process using Jenkins. This setup provided a comprehensive view of Infrastructure as Code (IaC) in action, including provisioning the infrastructure by configuring the VPC, subnets, load balancer, gateways, and instances.
 
 ## SYSTEM DESIGN DIAGRAM
+<div align = "center">
+  <img width="1402" alt="image" src="https://github.com/user-attachments/assets/fbefd795-b26a-49fb-8eae-73ad9eb8a752">
 
+</div>
 
 ## STEPS
 
