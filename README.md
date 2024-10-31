@@ -61,6 +61,8 @@ The workload should include a monitoring server in the default VPC. However, I e
 
 
 ## Business Intelligence
+<img width="711" alt="Screenshot 2024-10-30 at 10 27 57 PM" src="https://github.com/user-attachments/assets/7cb1c83b-ea4e-491d-96da-e1163eb7c3c3">
+<img width="1258" alt="Screenshot 2024-10-30 at 10 39 17 PM" src="https://github.com/user-attachments/assets/5244ed69-372c-4b39-bd62-234b6d3163b0">
 
 The database for this application is not empty.  There are many tables but the following are the ones to focus on: "auth_user", "product", "account_billing_address", "account_stripemodel", and "account_ordermodel"
 
